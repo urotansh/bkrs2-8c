@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   
   get "searches" => "searches#search"
   
-  resources :groups, except: [:destroy] 
+  resources :groups, except: [:destroy] do
+    resource :group_users, only: [:create, :destroy]
+  end
   
 end
