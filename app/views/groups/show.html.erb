@@ -15,7 +15,7 @@
             <th></th>
             <th>グループ名</th>
             <th>紹介文</th>
-            <th></th>
+            <th>メンバー</th>
             <th></th>
           </tr>
         </thead>
@@ -29,6 +29,11 @@
             </td>
             <td>
               <%= @group.introduction %>
+            </td>
+            <td>
+              <% @group.group_users.each do |group_user| %>
+                <%= group_user.user.name %><br>
+              <% end %>
             </td>
             <td>
               <% if @group.owner_id == current_user.id %>
